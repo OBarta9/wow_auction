@@ -72,7 +72,20 @@ jobs:
             commit -q -m "data $(date -u +%Y-%m-%dT%H:%MZ)"
           git push -q -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data
 
+      - name: Check that GitHub Pages is enabled
+        id: pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" > /dev/null 2>&1; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::GitHub Pages is not enabled yet (Settings -> Pages -> Source: GitHub Actions). Prices were saved to the data branch; the site was not deployed."
+          fi
+
       - name: Build site
+        if: steps.pages.outputs.enabled == 'true'
         run: |
           rm -rf _site
           cp -r web _site
@@ -80,8 +93,10 @@ jobs:
           cp -r _data/live _site/data/live
 
       - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outputs.enabled == 'true'
         with:
           path: _site
 
       - id: deploy
+        if: steps.pages.outputs.enabled == 'true'
         uses: actions/deploy-pages@v4
