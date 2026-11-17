@@ -1,0 +1,8 @@
+## Interface: 16001, 11508
+## Title: WowAuctionHelper
+## Notes: Exports your professions and known recipes for the WoW Auction Helper web app. Type /wah.
+## Author: wow_auction
+## Version: 1.0.0
+## SavedVariables: WowAuctionHelperDB
+
+WowAuctionHelper.lua

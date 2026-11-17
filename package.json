@@ -1,0 +1,9 @@
+{
+  "name": "wow-auction-helper",
+  "private": true,
+  "type": "module",
+  "description": "Engine tests only - the app itself has no dependencies or build step.",
+  "scripts": {
+    "test": "node --test tests/*.mjs && python3 -m unittest discover -s tests"
+  }
+}

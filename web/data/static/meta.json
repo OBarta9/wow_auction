@@ -1,0 +1,21 @@
+{
+ "build": "1.60.1.70938",
+ "product": "wowf",
+ "source": "wago.tools DB2 + cmangos classic-db + QuestieDB",
+ "generated": 1794914194,
+ "counts": {
+  "items": 19325,
+  "recipes": 2146,
+  "vendor": 2600
+ },
+ "stats": {
+  "skipped_no_effect": 91,
+  "recipes_trainer": 465,
+  "recipes_item": 1681,
+  "skipped_retired_or_unnamed": 49,
+  "skipped_unknown_output": 329,
+  "skipped_unknown_reagent": 8,
+  "learn_level_estimated": 105,
+  "estimate_gap": 20
+ }
+}

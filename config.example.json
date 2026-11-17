@@ -1,0 +1,11 @@
+{
+  "_comment": "Copy to config.json to change defaults. Everything here is optional.",
+  "region": "eu",
+  "game": "forever",
+  "ruleset": "normal",
+  "houses": {"alliance": 111, "horde": 114, "neutral": 117},
+  "characters": ["yourname-yoursurname"],
+  "use_tsm": true,
+  "use_blizzard": "auto",
+  "history_days": 21
+}

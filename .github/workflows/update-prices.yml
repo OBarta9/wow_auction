@@ -1,0 +1,87 @@
+# Hourly: fetch prices (TSM public data + Blizzard API if keys are set),
+# keep pipeline state on the `data` branch (single force-pushed commit, so the
+# repo never grows) and publish the web app + fresh data to GitHub Pages.
+#
+# One-time setup (see README):
+#   Settings -> Pages -> Source: "GitHub Actions"
+#   Settings -> Secrets and variables -> Actions:
+#     secrets   BLIZZARD_CLIENT_ID, BLIZZARD_CLIENT_SECRET   (optional, free from develop.battle.net)
+#     variables WOWAH_CHARACTERS = "name-surname,alt-surname" (optional)
+name: Update prices
+
+on:
+  schedule:
+    - cron: "23 * * * *" # every hour at :23
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - "pipeline/**"
+      - "wowah.py"
+      - "config.json"
+      - ".github/workflows/update-prices.yml"
+
+permissions:
+  contents: write # push the data branch
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore state from the data branch
+        run: |
+          mkdir -p _data
+          if git fetch --depth=1 origin data 2>/dev/null; then
+            git --work-tree=_data checkout FETCH_HEAD -- .
+            git reset -q
+          else
+            echo "No data branch yet - starting fresh."
+          fi
+
+      - name: Fetch prices
+        env:
+          BLIZZARD_CLIENT_ID: ${{ secrets.BLIZZARD_CLIENT_ID }}
+          BLIZZARD_CLIENT_SECRET: ${{ secrets.BLIZZARD_CLIENT_SECRET }}
+          WOWAH_CHARACTERS: ${{ vars.WOWAH_CHARACTERS }}
+          WOWAH_LIVE_DIR: _data/live
+          WOWAH_STATE_DIR: _data/state
+        run: python3 wowah.py fetch
+
+      - name: Save state to the data branch (single commit, force push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd _data
+          rm -rf .git
+          git init -q -b data
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "data $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push -q -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data
+
+      - name: Build site
+        run: |
+          rm -rf _site
+          cp -r web _site
+          rm -rf _site/data/live
+          cp -r _data/live _site/data/live
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

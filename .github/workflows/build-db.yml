@@ -1,0 +1,42 @@
+# Manual: rebuild the static recipe/item database (web/data/static) from the
+# latest WoW Forever client data and commit it. Run it after a game patch:
+# Actions -> "Rebuild recipe database" -> Run workflow.
+name: Rebuild recipe database
+
+on:
+  workflow_dispatch:
+    inputs:
+      build:
+        description: "Client build (empty = latest WoW Forever build on wago.tools)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  build-db:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build database
+        env:
+          BUILD: ${{ inputs.build }}
+        run: |
+          if [ -n "$BUILD" ]; then
+            python3 wowah.py build-db --build "$BUILD"
+          else
+            python3 wowah.py build-db
+          fi
+      - name: Commit if changed
+        run: |
+          git add web/data/static
+          if git diff --cached --quiet; then
+            echo "Database unchanged."
+            exit 0
+          fi
+          BUILD=$(python3 -c "import json;print(json.load(open('web/data/static/meta.json'))['build'])")
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "Rebuild recipe database for client build ${BUILD}"
+          git push

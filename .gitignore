@@ -1,0 +1,13 @@
+# local data produced by `python wowah.py fetch`
+web/data/live/
+state/
+_data/
+_site/
+# credentials
+secrets.json
+.env
+# build caches
+.cache/
+__pycache__/
+*.pyc
+node_modules/
