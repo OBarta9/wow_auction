@@ -55,4 +55,6 @@ def list_houses(cfg: Config, check: bool = False) -> None:
     if check:
         print("\nThe house with the highest match per faction is yours. Neutral (Blackwater) houses have no TSM")
         print("file; they are usually the one whose id follows the pattern of the matching faction houses.")
-        print('Put the ids into config.json as  "houses": {"alliance": .., "horde": .., "neutral": ..}')
+        print('If they differ from the configured ones, set them as a GitHub repository variable')
+        print('  WOWAH_HOUSES = alliance=<id>,horde=<id>,neutral=<id>')
+        print('or locally in config.json as  "houses": {"alliance": .., "horde": .., "neutral": ..}')

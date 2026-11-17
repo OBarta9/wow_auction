@@ -66,11 +66,14 @@ Characters, settings and price overrides are saved in your browser (localStorage
 
 Copy `config.example.json` to `config.json`. Defaults: EU, Forever, Normal ruleset, auction houses `111` (Alliance), `114` (Horde) and `117` (Blackwater).
 
-Blizzard does not label which auction house belongs to which ruleset; the mapping comes from the community. With API keys, run this to verify it:
+Blizzard does not label which auction house belongs to which ruleset; the mapping comes from the community. With API keys you can verify it in either of two ways:
 
-```bash
-python wowah.py houses --check
-```
+* **On GitHub:** go to **Actions → Update prices → Run workflow**, tick **"Also check which auction house ids belong to your ruleset"**, and read the "Check auction house mapping" step in the log.
+* **Locally:** run `python wowah.py houses --check`.
+
+If the ids differ, override them:
+* **On GitHub:** add the repository variable `WOWAH_HOUSES` = `alliance=111,horde=114,neutral=117` (with your ids).
+* **Locally:** set `"houses"` in `config.json`.
 
 ## Updating the recipe database after a game patch
 

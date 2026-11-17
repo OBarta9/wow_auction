@@ -7,12 +7,18 @@
 #   Settings -> Secrets and variables -> Actions:
 #     secrets   BLIZZARD_CLIENT_ID, BLIZZARD_CLIENT_SECRET   (optional, free from develop.battle.net)
 #     variables WOWAH_CHARACTERS = "name-surname,alt-surname" (optional)
+#               WOWAH_HOUSES = "alliance=111,horde=114,neutral=117" (optional override)
 name: Update prices
 
 on:
   schedule:
     - cron: "23 * * * *" # every hour at :23
   workflow_dispatch:
+    inputs:
+      check_houses:
+        description: "Also check which auction house ids belong to your ruleset (needs Blizzard keys)"
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths:
@@ -51,11 +57,20 @@ jobs:
             echo "No data branch yet - starting fresh."
           fi
 
+      - name: Check auction house mapping
+        if: inputs.check_houses
+        env:
+          BLIZZARD_CLIENT_ID: ${{ secrets.BLIZZARD_CLIENT_ID }}
+          BLIZZARD_CLIENT_SECRET: ${{ secrets.BLIZZARD_CLIENT_SECRET }}
+          WOWAH_HOUSES: ${{ vars.WOWAH_HOUSES }}
+        run: python3 wowah.py houses --check
+
       - name: Fetch prices
         env:
           BLIZZARD_CLIENT_ID: ${{ secrets.BLIZZARD_CLIENT_ID }}
           BLIZZARD_CLIENT_SECRET: ${{ secrets.BLIZZARD_CLIENT_SECRET }}
           WOWAH_CHARACTERS: ${{ vars.WOWAH_CHARACTERS }}
+          WOWAH_HOUSES: ${{ vars.WOWAH_HOUSES }}
           WOWAH_LIVE_DIR: _data/live
           WOWAH_STATE_DIR: _data/state
         run: python3 wowah.py fetch

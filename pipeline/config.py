@@ -98,6 +98,7 @@ def load_config(path: Path | None = None) -> Config:
         "WOWAH_GAME": "game",
         "WOWAH_RULESET": "ruleset",
         "WOWAH_CHARACTERS": "characters",
+        "WOWAH_HOUSES": "houses",
         "WOWAH_HISTORY_DAYS": "history_days",
         "WOWAH_USE_BLIZZARD": "use_blizzard",
         "WOWAH_LIVE_DIR": "live_dir",
@@ -111,6 +112,9 @@ def load_config(path: Path | None = None) -> Config:
             v = int(v)
         elif attr == "characters":
             v = [c.strip() for c in v.split(",") if c.strip()]
+        elif attr == "houses":  # "alliance=111,horde=114,neutral=117"
+            pairs = [h.split("=", 1) for h in v.split(",") if "=" in h]
+            v = {k.strip().lower(): int(n) for k, n in pairs if n.strip().isdigit()}
         elif attr in ("live_dir", "state_dir"):
             v = Path(v).resolve()
         setattr(cfg, attr, v)
