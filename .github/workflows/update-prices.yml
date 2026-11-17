@@ -63,7 +63,12 @@ jobs:
           BLIZZARD_CLIENT_ID: ${{ secrets.BLIZZARD_CLIENT_ID }}
           BLIZZARD_CLIENT_SECRET: ${{ secrets.BLIZZARD_CLIENT_SECRET }}
           WOWAH_HOUSES: ${{ vars.WOWAH_HOUSES }}
-        run: python3 wowah.py houses --check
+        run: |
+          if [ -z "$BLIZZARD_CLIENT_ID" ] || [ -z "$BLIZZARD_CLIENT_SECRET" ]; then
+            echo "::warning::House check skipped: add the BLIZZARD_CLIENT_ID / BLIZZARD_CLIENT_SECRET secrets first."
+            exit 0
+          fi
+          python3 wowah.py houses --check
 
       - name: Fetch prices
         env:
