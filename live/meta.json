@@ -1,0 +1,42 @@
+{
+ "updated": 1795289325,
+ "game": "forever",
+ "region": "eu",
+ "ruleset": "normal",
+ "houses": [
+  {
+   "slug": "alliance",
+   "id": 111,
+   "items": 7521,
+   "auctions": 329955,
+   "sources": {
+    "tsm": 1795274592,
+    "tsmRegion": 1795134169,
+    "blizzard": 1795289325
+   }
+  },
+  {
+   "slug": "horde",
+   "id": 114,
+   "items": 7438,
+   "auctions": 309507,
+   "sources": {
+    "tsm": 1795274590,
+    "tsmRegion": 1795134169,
+    "blizzard": 1795289325
+   }
+  },
+  {
+   "slug": "neutral",
+   "id": 117,
+   "items": 4430,
+   "auctions": 61037,
+   "sources": {
+    "tsm": null,
+    "tsmRegion": 1795134169,
+    "blizzard": 1795289325
+   }
+  }
+ ],
+ "errors": []
+}
