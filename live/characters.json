@@ -1,0 +1,485 @@
+{
+ "ts": 1795871740,
+ "characters": [
+  {
+   "id": "frennzy-earthshaker",
+   "name": "Frennzy",
+   "surname": "Earthshaker",
+   "faction": "horde",
+   "level": 35,
+   "cls": "Shaman",
+   "professions": {
+    "leatherworking": {
+     "rank": 163,
+     "max": 225
+    },
+    "skinning": {
+     "rank": 239,
+     "max": 300
+    },
+    "cooking": {
+     "rank": 35,
+     "max": 75
+    },
+    "fishing": {
+     "rank": 1,
+     "max": 75
+    }
+   },
+   "knownApi": {
+    "leatherworking": [
+     {
+      "id": 4419,
+      "n": "Deviate Scale Belt"
+     },
+     {
+      "id": 1353,
+      "n": "Handstitched Leather Boots"
+     },
+     {
+      "id": 1355,
+      "n": "Handstitched Leather Pants"
+     },
+     {
+      "id": 1356,
+      "n": "Light Armor Kit"
+     },
+     {
+      "id": 1362,
+      "n": "Embossed Leather Vest"
+     },
+     {
+      "id": 1367,
+      "n": "Medium Armor Kit"
+     },
+     {
+      "id": 1368,
+      "n": "Toughened Leather Armor"
+     },
+     {
+      "id": 1371,
+      "n": "Dark Leather Tunic"
+     },
+     {
+      "id": 1708,
+      "n": "Light Leather"
+     },
+     {
+      "id": 2162,
+      "n": "Handstitched Leather Belt"
+     },
+     {
+      "id": 2164,
+      "n": "Embossed Leather Gloves"
+     },
+     {
+      "id": 4987,
+      "n": "Handstitched Leather Cloak"
+     },
+     {
+      "id": 4988,
+      "n": "Handstitched Leather Bracers"
+     },
+     {
+      "id": 4992,
+      "n": "Light Leather Bracers"
+     },
+     {
+      "id": 4993,
+      "n": "Light Leather Pants"
+     },
+     {
+      "id": 4996,
+      "n": "Nimble Leather Gloves"
+     },
+     {
+      "id": 2177,
+      "n": "Hillman's Shoulders"
+     },
+     {
+      "id": 2185,
+      "n": "Green Leather Bracers"
+     },
+     {
+      "id": 2195,
+      "n": "Cured Light Hide"
+     },
+     {
+      "id": 2196,
+      "n": "Cured Medium Hide"
+     },
+     {
+      "id": 2197,
+      "n": "Cured Heavy Hide"
+     },
+     {
+      "id": 2199,
+      "n": "Heavy Armor Kit"
+     },
+     {
+      "id": 3343,
+      "n": "Kodo Hide Bag"
+     },
+     {
+      "id": 11756,
+      "n": "Medium Leather"
+     },
+     {
+      "id": 11757,
+      "n": "Heavy Leather"
+     },
+     {
+      "id": 5049,
+      "n": "Dusky Leather Leggings"
+     },
+     {
+      "id": 4156,
+      "n": "Handstitched Leather Vest"
+     },
+     {
+      "id": 52647,
+      "n": "Camp Tent"
+     },
+     {
+      "id": 55138,
+      "n": "Skirmisher's Leather Belt"
+     },
+     {
+      "id": 55145,
+      "n": "Totemic Leather Leggings"
+     },
+     {
+      "id": 55160,
+      "n": "Totemic Leather Tunic"
+     },
+     {
+      "id": 55168,
+      "n": "Defender's Leather Hood"
+     },
+     {
+      "id": 55204,
+      "n": "Moonglow Boots"
+     },
+     {
+      "id": 55205,
+      "n": "Murloc Scale Shoes"
+     }
+    ],
+    "skinning": [
+     {
+      "id": 5746,
+      "n": "Skinning"
+     },
+     {
+      "id": 52644,
+      "n": "Camp Chair"
+     }
+    ],
+    "cooking": [
+     {
+      "id": 1535,
+      "n": "Charred Wolf Meat"
+     },
+     {
+      "id": 1536,
+      "n": "Spiced Wolf Meat"
+     },
+     {
+      "id": 1537,
+      "n": "Roasted Boar Meat"
+     },
+     {
+      "id": 4353,
+      "n": "Brilliant Smallfish"
+     },
+     {
+      "id": 4786,
+      "n": "Herb Baked Egg"
+     },
+     {
+      "id": 52640,
+      "n": "Basic Campfire"
+     }
+    ],
+    "fishing": [
+     {
+      "id": 4344,
+      "n": "Fishing"
+     }
+    ]
+   },
+   "source": "blizzard-profile"
+  },
+  {
+   "id": "frennzy-lightbane",
+   "name": "Frennzy",
+   "surname": "Lightbane",
+   "faction": "horde",
+   "level": 29,
+   "cls": "Paladin",
+   "professions": {
+    "mining": {
+     "rank": 138,
+     "max": 225
+    },
+    "blacksmithing": {
+     "rank": 140,
+     "max": 150
+    },
+    "cooking": {
+     "rank": 150,
+     "max": 150
+    },
+    "fishing": {
+     "rank": 32,
+     "max": 75
+    },
+    "firstaid": {
+     "rank": 137,
+     "max": 150
+    }
+   },
+   "knownApi": {
+    "mining": [
+     {
+      "id": 3324,
+      "n": "Smelt Copper"
+     },
+     {
+      "id": 1570,
+      "n": "Mining"
+     },
+     {
+      "id": 1847,
+      "n": "Smelt Iron"
+     },
+     {
+      "id": 1600,
+      "n": "Smelt Bronze"
+     },
+     {
+      "id": 2036,
+      "n": "Mining"
+     },
+     {
+      "id": 1848,
+      "n": "Smelt Tin"
+     },
+     {
+      "id": 52643,
+      "n": "Lodestone"
+     },
+     {
+      "id": 1599,
+      "n": "Smelt Silver"
+     }
+    ],
+    "blacksmithing": [
+     {
+      "id": 4285,
+      "n": "Heavy Copper Maul"
+     },
+     {
+      "id": 11183,
+      "n": "Silver Skeleton Key"
+     },
+     {
+      "id": 54707,
+      "n": "Protector's Chain Leggings"
+     },
+     {
+      "id": 1639,
+      "n": "Rough Bronze Leggings"
+     },
+     {
+      "id": 1640,
+      "n": "Rough Bronze Cuirass"
+     },
+     {
+      "id": 54692,
+      "n": "Gemmed Copper Boots"
+     },
+     {
+      "id": 52645,
+      "n": "Sharpening Wheel"
+     },
+     {
+      "id": 1636,
+      "n": "Coarse Sharpening Stone"
+     },
+     {
+      "id": 1798,
+      "n": "Rough Weightstone"
+     },
+     {
+      "id": 1633,
+      "n": "Copper Chain Pants"
+     },
+     {
+      "id": 4389,
+      "n": "Rough Bronze Boots"
+     },
+     {
+      "id": 6636,
+      "n": "Rough Copper Vest"
+     },
+     {
+      "id": 1799,
+      "n": "Heavy Weightstone"
+     },
+     {
+      "id": 1631,
+      "n": "Rough Sharpening Stone"
+     },
+     {
+      "id": 54744,
+      "n": "Crusader's Silvered Chain Helm"
+     },
+     {
+      "id": 1644,
+      "n": "Heavy Sharpening Stone"
+     },
+     {
+      "id": 1868,
+      "n": "Heavy Grinding Stone"
+     },
+     {
+      "id": 1856,
+      "n": "Rough Grinding Stone"
+     },
+     {
+      "id": 5339,
+      "n": "Bronze Warhammer"
+     },
+     {
+      "id": 54732,
+      "n": "Protector's Silvered Chain Shirt"
+     },
+     {
+      "id": 1634,
+      "n": "Copper Bracers"
+     },
+     {
+      "id": 1637,
+      "n": "Runed Copper Belt"
+     },
+     {
+      "id": 4847,
+      "n": "Iron Buckle"
+     },
+     {
+      "id": 7836,
+      "n": "Golden Rod"
+     },
+     {
+      "id": 1861,
+      "n": "Coarse Grinding Stone"
+     },
+     {
+      "id": 1858,
+      "n": "Runed Copper Gauntlets"
+     },
+     {
+      "id": 1800,
+      "n": "Coarse Weightstone"
+     },
+     {
+      "id": 54212,
+      "n": "Copper Rod"
+     },
+     {
+      "id": 1859,
+      "n": "Runed Copper Pants"
+     },
+     {
+      "id": 4390,
+      "n": "Silver Rod"
+     }
+    ],
+    "cooking": [
+     {
+      "id": 4786,
+      "n": "Herb Baked Egg"
+     },
+     {
+      "id": 52640,
+      "n": "Basic Campfire"
+     },
+     {
+      "id": 4359,
+      "n": "Bristle Whisker Catfish"
+     },
+     {
+      "id": 4355,
+      "n": "Longjaw Mud Snapper"
+     },
+     {
+      "id": 1545,
+      "n": "Dry Pork Ribs"
+     },
+     {
+      "id": 1902,
+      "n": "Hot Lion Chops"
+     },
+     {
+      "id": 1536,
+      "n": "Spiced Wolf Meat"
+     },
+     {
+      "id": 4391,
+      "n": "Rainbow Fin Albacore"
+     },
+     {
+      "id": 4353,
+      "n": "Brilliant Smallfish"
+     },
+     {
+      "id": 1537,
+      "n": "Roasted Boar Meat"
+     },
+     {
+      "id": 1535,
+      "n": "Charred Wolf Meat"
+     },
+     {
+      "id": 3964,
+      "n": "Boiled Clams"
+     }
+    ],
+    "fishing": [
+     {
+      "id": 4344,
+      "n": "Fishing"
+     }
+    ],
+    "firstaid": [
+     {
+      "id": 1839,
+      "n": "Heavy Linen Bandage"
+     },
+     {
+      "id": 54192,
+      "n": "Lesser Healing Potion"
+     },
+     {
+      "id": 1840,
+      "n": "Wool Bandage"
+     },
+     {
+      "id": 1838,
+      "n": "Linen Bandage"
+     },
+     {
+      "id": 55743,
+      "n": "Woolen Tourniquet"
+     },
+     {
+      "id": 1841,
+      "n": "Heavy Wool Bandage"
+     }
+    ]
+   },
+   "source": "blizzard-profile"
+  }
+ ]
+}
